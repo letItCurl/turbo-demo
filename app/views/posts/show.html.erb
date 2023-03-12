@@ -5,6 +5,8 @@
     <% end %>
 
     <%= render @post %>
+    <%= render "posts/comments", post: @post %>
+
 
     <%= link_to 'Edit this post', edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">
