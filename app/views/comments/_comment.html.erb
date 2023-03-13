@@ -1,5 +1,14 @@
-<div id="<%= dom_id(comment) %>" class="bg-gray-100 p-3 rounded shadow-sm">
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div class="bg-gray-100 p-3 rounded shadow-sm mt-3">
+    <div>
+      <%= comment.content %> - <%= time_tag comment.created_at, "data-local": "time-ago" %>
+    </div>
 
-  <%= comment.content %> -
-  <%= time_tag comment.created_at, "data-local": "time-ago" %>
+
+    
+<div>
+  <%= link_to 'Edit', edit_post_comment_path(post_id: comment.post_id, id: comment.id) %>
 </div>
+
+</div>
+<% end %>

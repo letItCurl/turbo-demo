@@ -1,0 +1,15 @@
+<%= turbo_frame_tag dom_id(comment) do %>
+  <%= form_with model: [post, comment] do |form| %>
+    <% if comment.errors.any? %>
+      <div class="bg-red-900 text-white p-3">
+        ERROS!
+      </div>
+    <% end %>
+    Your comment: <br>
+    <%= form.text_area :content, size: "20x5" %> <br>
+    <%= form.submit class: "bg-green-300 text-green-800 p-3 rounded" %> <br>
+    <% unless comment.id.nil? %>
+      <%= link_to 'Cancel', post_comment_path(post_id: comment.post_id, id: comment.id), class: "bg-gray-200 p-3 mt-4" %>
+    <% end %>
+  <% end %>
+<% end %>

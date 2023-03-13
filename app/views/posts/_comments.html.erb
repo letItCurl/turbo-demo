@@ -3,4 +3,5 @@
 
   <%= render post.comments %>
 </div>
-<%= render 'comments/new', post: post %>
+
+<%= render 'comments/form', post: post, comment: post.comments.new %>
